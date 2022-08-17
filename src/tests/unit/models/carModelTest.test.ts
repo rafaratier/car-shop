@@ -2,7 +2,7 @@ import * as sinon from 'sinon';
 import chai from 'chai';
 import { Model } from 'mongoose';
 import CarModel from '../../../models/CarModel';
-import { carMock, carMockWithId } from './mockModels/carModelMock';
+import { carMock, carMockList, carMockWithId } from './mockModels/carModelMock';
 
 const { expect } = chai;
 
@@ -12,6 +12,7 @@ describe('Test CarModel', () => {
   before(async () => {
     sinon.stub(Model, 'create').resolves(carMockWithId);
     sinon.stub(Model, 'findOne').resolves(carMockWithId);
+    sinon.stub(Model, 'find').resolves(carMockList);
   });
 
   after(() => {
@@ -33,6 +34,15 @@ describe('Test CarModel', () => {
       const carFound = await carModel.readOne('62261a65d66c6be0a63c051f');
 
       expect(carFound).to.be.deep.equal(carMockWithId);
+    });
+  });
+
+  describe("FIND - tests if it's possible to find all registries of cars", () => {
+
+    it('by calling method "read"', async () => {
+      const allCarsFound = await carModel.read();
+
+      expect(allCarsFound).to.be.deep.equal(carMockList);
     });
   });
 
