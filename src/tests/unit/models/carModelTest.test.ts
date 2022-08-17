@@ -14,6 +14,7 @@ describe('Test CarModel', () => {
     sinon.stub(Model, 'findOne').resolves(carMockWithId);
     sinon.stub(Model, 'find').resolves(carMockList);
     sinon.stub(Model, 'findByIdAndUpdate').resolves(carMockForUpdatedCar);
+    sinon.stub(Model, 'findByIdAndRemove').resolves(carMockWithId);
   });
 
   after(() => {
@@ -47,12 +48,12 @@ describe('Test CarModel', () => {
     });
   });
 
-  describe("FIND_BY_ID_AND_UPDATE - tests if it's possible to update the registry of a car", () => {
+  describe("FIND_BY_ID_AND_REMOVE - tests if it's possible to remove the registry of a car", () => {
 
-    it('by passing the correct args', async () => {
-      const updatedCar = await carModel.update('62261a65d66c6be0a63c051f', carMock);
+    it('by passing the correct _id as args', async () => {
+      const deletedCar = await carModel.delete('62261a65d66c6be0a63c051f');
 
-      expect(updatedCar).to.be.deep.equal(carMockForUpdatedCar);
+      expect(deletedCar).to.be.deep.equal(carMockWithId);
     });
   });
 
