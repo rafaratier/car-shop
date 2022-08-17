@@ -1,7 +1,7 @@
 import * as sinon from 'sinon';
 import chai from 'chai';
 import { Model } from 'mongoose';
-import CarModel from '../models/CarModel';
+import CarModel from '../../../models/CarModel';
 import { carMock, carMockWithId } from './mockModels/carModelMock';
 
 const { expect } = chai;
