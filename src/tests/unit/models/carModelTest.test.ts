@@ -11,7 +11,7 @@ describe('Test CarModel', () => {
 
   before(async () => {
     sinon
-      .stub(Model, 'create').resolves();
+      .stub(Model, 'create').resolves(carMockWithId);
   });
 
   after(() => {
