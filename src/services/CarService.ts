@@ -25,7 +25,10 @@ class CarService implements IService<ICar> {
     return allCars;
   }
 
-  public async updateVehicleById(_id: string, obj: ICar): Promise<ICar | null> {
+  public async updateVehicleById(
+    _id: string,
+    obj: Partial<ICar>,
+  ): Promise<ICar | null> {
     const updatedCar = this._carModel.update(_id, obj);
 
     return updatedCar;
