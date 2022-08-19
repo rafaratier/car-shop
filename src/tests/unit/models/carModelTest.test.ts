@@ -2,7 +2,7 @@ import * as sinon from 'sinon';
 import chai from 'chai';
 import { Model } from 'mongoose';
 import CarModel from '../../../models/CarModel';
-import { carMock, carMockList, carMockForUpdatedCar, carMockWithId } from './mockModels/carModelMock';
+import { carMock, carMockList, carMockForUpdatedCar, carMockWithId } from '../mocks/carModelMock';
 
 const { expect } = chai;
 
@@ -45,6 +45,15 @@ describe('Test CarModel', () => {
       const allCarsFound = await carModel.read();
 
       expect(allCarsFound).to.be.deep.equal(carMockList);
+    });
+  });
+
+  describe("FIND_BY_ID_AND_UPDATE - tests if it's possible to update the registry of a car", () => {
+
+    it('by passing the correct _id as args', async () => {
+      const updatedCar = await carModel.update('62261a65d66c6be0a63c051f', { model: 'Ferrari 458 Spider' });
+
+      expect(updatedCar).to.be.deep.equal(carMockWithId);
     });
   });
 

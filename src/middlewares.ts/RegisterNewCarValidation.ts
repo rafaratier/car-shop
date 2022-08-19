@@ -15,7 +15,6 @@ class RegisterNewCarValidation {
     }
 
     const parsed = ICarZodSchema.safeParse(req.body);
-    console.log(req.body);
 
     if (!parsed.success) {
       const zodErrorMessage = parsed.error.issues[0].message;
