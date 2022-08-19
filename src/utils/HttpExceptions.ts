@@ -4,9 +4,9 @@ class HttpExceptions {
   code: number;
   message: IHttpErrorMsg;
 
-  constructor(code: number, message: IHttpErrorMsg) {
+  constructor(code: number, error: IHttpErrorMsg) {
     this.code = code;
-    this.message = message;
+    this.message = error;
   }
 
   static badRequest(msg: IHttpErrorMsg) {
