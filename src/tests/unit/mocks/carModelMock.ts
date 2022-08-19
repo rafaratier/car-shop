@@ -46,7 +46,7 @@ const carMockList: ICar[] & { _id: string }[] = [
 
 const carMockForUpdatedCar: ICar & { _id: string } = {
   _id: '62261a65d66c6be0a63c051f',
-  model: 'Ferrari 458 Spider',
+  model: 'Ferrari 458 Italia',
   year: 2015,
   color: 'red',
   buyValue: 270000000,

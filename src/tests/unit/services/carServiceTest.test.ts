@@ -52,9 +52,9 @@ describe('Test CarService', () => {
   describe("UPDATE_VEHICLE_BY_ID - tests if it's possible to update the registry of a car", () => {
 
     it('by passing the correct _id as args', async () => {
-      const updatedCar = await carService.updateVehicleById('62261a65d66c6be0a63c051f', { model: 'Ferrari 458 Spider' });
+      const updatedCar = await carService.updateVehicleById('62261a65d66c6be0a63c051f', carMock);
 
-      expect(updatedCar).to.be.deep.equal(carMockWithId);
+      expect(updatedCar).to.be.deep.equal(carMockForUpdatedCar);
     });
   });
 
