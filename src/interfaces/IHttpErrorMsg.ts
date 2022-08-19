@@ -1,5 +1,5 @@
 interface IHttpErrorMsg {
-  message: string,
+  error: string,
 }
 
 export default IHttpErrorMsg;

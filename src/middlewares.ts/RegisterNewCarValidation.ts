@@ -10,7 +10,7 @@ class RegisterNewCarValidation {
   ) => {
     if (Object.keys(req.body).length === 0) {
       next(HttpExceptions
-        .badRequest({ message: 'Data from vehicle is required' }));
+        .badRequest({ error: 'Data from vehicle is required' }));
       return;
     }
 
@@ -19,7 +19,7 @@ class RegisterNewCarValidation {
     if (!parsed.success) {
       const zodErrorMessage = parsed.error.issues[0].message;
 
-      next(HttpExceptions.badRequest({ message: zodErrorMessage }));
+      next(HttpExceptions.badRequest({ error: zodErrorMessage }));
       return;
     }
 
